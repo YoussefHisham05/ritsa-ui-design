@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Reviews | Obsidian Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #ece1d1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffd165 0%, #eab308 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#c7e7ff",
+                      "on-surface-variant": "#d3c5ac",
+                      "primary-fixed-dim": "#f7be1d",
+                      "inverse-on-surface": "#353025",
+                      "outline": "#9b8f79",
+                      "surface-dim": "#17130a",
+                      "secondary-fixed": "#d3e4fe",
+                      "surface-tint": "#f7be1d",
+                      "surface-container": "#241f15",
+                      "on-background": "#ece1d1",
+                      "surface": "#17130a",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-variant": "#3a3429",
+                      "primary-fixed": "#ffdf9a",
+                      "on-tertiary-fixed": "#001e2e",
+                      "on-secondary-container": "#a9bad3",
+                      "inverse-surface": "#ece1d1",
+                      "surface-container-lowest": "#120e05",
+                      "primary-container": "#eab308",
+                      "surface-container-highest": "#3a3429",
+                      "on-tertiary": "#00344c",
+                      "tertiary-container": "#60c5ff",
+                      "on-primary-fixed-variant": "#5a4300",
+                      "background": "#17130a",
+                      "secondary": "#b7c8e1",
+                      "on-surface": "#ece1d1",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-container": "#005072",
+                      "on-secondary": "#213145",
+                      "error-container": "#93000a",
+                      "tertiary": "#adddff",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-error": "#690005",
+                      "surface-container-low": "#201b11",
+                      "surface-bright": "#3e382d",
+                      "secondary-container": "#3a4a5f",
+                      "on-tertiary-fixed-variant": "#004c6c",
+                      "surface-container-high": "#2f291f",
+                      "primary": "#ffd165",
+                      "inverse-primary": "#785a00",
+                      "on-primary-container": "#604700",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-primary-fixed": "#251a00",
+                      "on-primary": "#3f2e00",
+                      "outline-variant": "#4f4633",
+                      "tertiary-fixed-dim": "#83cfff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "stack-md": "16px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Montserrat"],
+                      "headline-md": ["Montserrat"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/5 bg-surface/60 backdrop-blur-3xl shadow-2xl">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-primary tracking-tighter">
+                Obsidian Cinema
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Browse</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Critics</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Coming Soon</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-white/5 border-none rounded-full py-2 pl-10 pr-4 text-body-md font-body-md focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Search reviews..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a young cinephile with short dark hair, wearing a high-end charcoal gray turtleneck. The lighting is dramatic and cinematic with a warm gold rim light reflecting Obsidian Cinema's brand identity. The background is a softly blurred modern interior with deep obsidian and slate tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRJJOx_CA7Q3JZ4eKkfATB5wRMlZJIwAo-ryao4NNsIqSzu3O12Yi5n0jEGaXj8V_NI5uqT7i_VA60LNFnW6T_oa1yoPeCOwyTjcpC-XAn9VfdPmxghX-bp9hyk0MeBUh8r-Uq39qDZosSOp5_2Yq7VNB9EQ23iqaAlGtiOqdO_DWvx8K1i9TNzKzsjM5hnk9UBG0FLtX_Z08wecMXXHTSxGtkN-LUH5Z5hc1t_dGFRmTgOfvaMQD_zv8INsR-uvgFV6fTrDKbq2nV"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-stack-lg px-margin-desktop max-w-container-max mx-auto min-h-screen">
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Main Content: Reviews Feed -->
+<div class="flex-1">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-stack-lg gap-stack-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Community Feed</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">See what the world is saying about today's biggest hits.</p>
+</div>
+</div>
+<!-- Sorting Bar -->
+<div class="glass-card rounded-xl p-2 mb-stack-md flex gap-2 overflow-x-auto hide-scrollbar">
+<button class="px-6 py-2 rounded-lg bg-primary text-on-primary-fixed font-label-sm text-label-sm transition-all shadow-lg shadow-primary/20">Latest</button>
+<button class="px-6 py-2 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Highest Rated</button>
+<button class="px-6 py-2 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Most Helpful</button>
+<button class="px-6 py-2 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all ml-auto">
+<span class="material-symbols-outlined align-middle mr-1">tune</span> Filters
+                    </button>
+</div>
+<!-- Review Cards Stack -->
+<div class="space-y-stack-md">
+<!-- Card 1 -->
+<article class="glass-card rounded-2xl p-6 group transition-all duration-300 hover:bg-white/[0.07] border-white/5">
+<div class="flex gap-stack-md">
+<div class="flex-shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-variant overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A portrait of a sophisticated film critic in her 30s with a sharp bob haircut, wearing designer glasses. The scene is shot with high-end cinematic lighting featuring deep shadows and warm gold highlights. The overall aesthetic is elegant and minimal, consistent with a high-end obsidian dark theme theater application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7NLI4jg3X8zSvuPurm38HP0c2IS9ndO6BA6ateSOV-r8rsOC_SQGB_nDfYi-lxGXYnq3_lqoQzGlLUQDRqdWxpghWSlLCYs4IW76YUHgh45ImRNwUJ5SYXJkGPh5Fk3DA-Sdm1-jL8ZtjLnUheRHP7HRUJ9OyBLJfijBjc72UuW8H3MKkyhzBE5RnffObUytyYj5tLpI4w7-eiNXh34BKccRXGnrZfWwQq7r5R8g2-4YXYOboloogGr6XXAZSfyUFOxgwfsSld2JZ"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">A Masterpiece of Shadow and Light</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Review of <span class="text-primary">Neon Nocturne</span> • 2 hours ago</p>
+</div>
+<div class="flex items-center bg-surface-container rounded-lg px-3 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md text-primary ml-1">4.9</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                                    The way the director utilizes the obsidian-toned cinematography to emphasize the emotional isolation of the protagonist is nothing short of revolutionary. Every frame feels like a curated gallery piece, blending brutalist architecture with soft, golden-hour transitions. It's a must-watch for anyone who values visual storytelling...
+                                </p>
+<div class="flex items-center gap-6 border-t border-white/5 pt-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">1.2k Likes</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">84 Comments</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all ml-auto">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="glass-card rounded-2xl p-6 group transition-all duration-300 hover:bg-white/[0.07] border-white/5">
+<div class="flex gap-stack-md">
+<div class="flex-shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-variant overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a male film enthusiast with a stylized beard and modern hairstyle, illuminated by teal and amber cinematic mood lighting. The background is dark and textured, evoking an exclusive underground cinema atmosphere. The style is sharp, professional, and follows a premium dark-mode design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9uiZtZjXcFmkntbInOJXT8Pkbru42MQuWwqohHv6naz6DUDJxvR2mHo605VEIGgWyscBgJcImxqtDTAfKPaRgHKKQSdO0c3InTDm8CdMJvMj9tOX50NqSzpXKqaYH3fePebEit2md9wyD6HiH2qyZd4tj0HA10ZgrT_opMaz7z0PVpR0tFu_izjPtFSs-8x7mo8MLyhrpBcwj8xFp_rLTo81VN_WOQrKg10lxLey__W5kyb-Qhhd_T7Mtp6t9o1aTaokhH9djYzHL"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Pacing Issues Mar a Great Concept</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Review of <span class="text-primary">The Last Echo</span> • 5 hours ago</p>
+</div>
+<div class="flex items-center bg-surface-container rounded-lg px-3 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md text-primary ml-1">3.5</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                                    While the sound design is absolutely immersive, particularly in the third act, the first forty-five minutes drag significantly. The characters are well-realized, but the script needed another pass to tighten the dialogue in the mid-section. Still worth seeing on the big screen for the technical achievements alone...
+                                </p>
+<div class="flex items-center gap-6 border-t border-white/5 pt-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">450 Likes</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">12 Comments</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all ml-auto">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="glass-card rounded-2xl p-6 group transition-all duration-300 hover:bg-white/[0.07] border-white/5">
+<div class="flex gap-stack-md">
+<div class="flex-shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-variant overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A portrait of an older, distinguished male movie critic with salt-and-pepper hair and a velvet blazer. He is standing in a luxury home library with warm lighting that creates golden reflections on leather book spines. The mood is authoritative and high-end, perfectly fitting a premium movie discussion platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDkX5YbYcOkz6MUbWPs-HFDNOr8cii1avtgkFQ3Xcr4i-Lt1hOX24Li6vDF7fdGU-OBisMBdvnO0oBpa7yEjI-U_22mfUq9j5EizqPTnYB8FqxGTI8c8hTZfrwQfzxkPAM40-GdQWQUlsyXY5uyfa2ZCoseWUAhQYZjImoQZORboa4rxvzztMArAAKMJuvvfIC1cUfmR-P8o3FjHJ6nVdISF5jpuJKMHl8UN7UMQH_F76orPzB8dpKheKi18IbUXDLRrJvLr9NQwGy"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">The Return of Classic Noir</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Review of <span class="text-primary">Velvet Shadows</span> • 1 day ago</p>
+</div>
+<div class="flex items-center bg-surface-container rounded-lg px-3 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md text-primary ml-1">5.0</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                                    Rarely do we see such a faithful yet modern interpretation of the noir genre. The use of high-contrast lighting is a direct homage to the classics, while the thematic depth addresses contemporary anxieties with surgical precision. It's the film of the year, without a doubt...
+                                </p>
+<div class="flex items-center gap-6 border-t border-white/5 pt-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">3.1k Likes</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">245 Comments</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all ml-auto">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Sidebar: Trends & Reviewers -->
+<aside class="w-full lg:w-80 flex flex-col gap-gutter">
+<!-- Trending Tags -->
+<section class="glass-card rounded-2xl p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span> Trending
+                    </h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-label-sm font-label-sm text-on-surface-variant hover:bg-primary hover:text-on-primary-fixed hover:border-primary transition-all cursor-pointer">#NoirMasterpiece</span>
+<span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-label-sm font-label-sm text-on-surface-variant hover:bg-primary hover:text-on-primary-fixed hover:border-primary transition-all cursor-pointer">#SciFiWeek</span>
+<span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-label-sm font-label-sm text-on-surface-variant hover:bg-primary hover:text-on-primary-fixed hover:border-primary transition-all cursor-pointer">#DirectorDebuts</span>
+<span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-label-sm font-label-sm text-on-surface-variant hover:bg-primary hover:text-on-primary-fixed hover:border-primary transition-all cursor-pointer">#GoldenEra</span>
+<span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-label-sm font-label-sm text-on-surface-variant hover:bg-primary hover:text-on-primary-fixed hover:border-primary transition-all cursor-pointer">#IndieGems</span>
+</div>
+</section>
+<!-- Top Reviewers -->
+<section class="glass-card rounded-2xl p-6">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Top Reviewers</h2>
+<button class="text-primary font-label-sm text-label-sm hover:underline">See all</button>
+</div>
+<div class="space-y-4">
+<!-- Reviewer 1 -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="Close-up avatar of a male user with a trendy haircut and a cinematic teal lighting theme. The image is high contrast and sharp, suited for a premium Obsidian Cinema profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Own4WDuDoVDXfq1mr7R5JDN54FR8MEqnBDaHX59PlfpPhqLE7jf3kcDfB7tcZarfS4_EOnVY0acYDWuB5TqIsjSgLwmr2zJalC2gu3YWjbNAgDxFCnFjlgOB2UcFdLkkzAgQIfU3KPFMS7SCYAa4zwNfULCgI27NoF77sFMfk_o19Bm8F_aS2aZ5jjHse9Qz5ChZQlVf6VUIn6gHWagUfWeAM-Km_3u-Tiz1QdHoXrW6On6ft1zMOuG9HpUtJPZN4SJBS-EWV70b"/>
+</div>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface">CineMarius</p>
+<p class="text-[10px] text-on-surface-variant">1.4k Reviews • 12k Likes</p>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<!-- Reviewer 2 -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Avatar of a female film enthusiast with long wavy hair, warm studio lighting with a subtle gold glow, consistent with the brand's luxury cinematic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn9DQ3K0N31InJwFwJVgVZQwp2YDmWuy7XHd9TF3WtfuHa54PRJpNW8e-OddsYncifULpSXQvBXH5wN-6YUtkPbkGiYPOYAWyUrpqBUk9PrTfR_WgZ9E0CUoK9tZmIrq3ZASC_Dnii-n03QJ-gO3nCBTUdJp7IaaB_E2bJp9lEXPC6vpDIAqHxhkfCyVn20_VMCkLlY_NKYGmGakQ_Vr84CLgS-RCiP0LEwpcUaEeAqnuwc4TjpHaxL9SUp7Pr5Hzblp7oBzvL3bBE"/>
+</div>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface">FilmFanatic</p>
+<p class="text-[10px] text-on-surface-variant">842 Reviews • 8k Likes</p>
+</div>
+</div>
+<!-- Reviewer 3 -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Portrait of a modern young man with a cool, intellectual vibe, minimalist black glasses, shot against a dark obsidian background with professional spotlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApVgwLCvYh5w0BadyNj6k1qn_BZm8qfxqRcCSkAWMkOJvUmMPGrAAjYm7gU-YJizHYlBO9_6qXxV62KiNYQJcl_iAu-Yuo0mXlVh_koAqO1GBIVJlCx7tU-JjA7bkk2XuZ_TNSj1aFt-u0W1bO-lAeKQJE8VZGTptN_dQYKhQ1GlQwmn5MqEacnbmpWwJuW_VddSjEZtGi7CN7E2tPdJrMik-WZwLz3-BroFz-YuEovnsAfW2V_pOMf21C8rR1t2nQUc2Jus_qaBN5"/>
+</div>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface">Director_X</p>
+<p class="text-[10px] text-on-surface-variant">520 Reviews • 5k Likes</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Activity Promo -->
+<div class="relative rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide cinematic shot of a modern, ultra-luxurious private screening room with obsidian walls, gold architectural details, and soft ambient lighting. Large comfortable seats face a glowing screen. The mood is high-end, exclusive, and moody. No people are in the shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUKXOjCV3fE6xmzfPjkOdkGyiL0klhty4QTYvBRCbNGiyWn4hXxceFq9ON-5NWB6urS8TP4yIAyco38H_I1xDEMmVd0ica9wuALWB0efTz0PcUEqjA1gpabhbO_HPvfOzWZnU17Z2M-zBlsTqQJSI_7LO3BReRs8im7zbfGruSKhC5FXQdxlKcd4qrTP3u_8jX3OLcZ0tKF4uZH03zQsmCYWVAeP16kjNGsfWsJza_ZMsOTZb6_to0AXqo7HrLZCOfnYhrmf4uejjI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Join the Critic Circle</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Post 5 high-quality reviews to earn your verified badge.</p>
+<button class="gold-gradient text-on-primary-fixed px-6 py-2 rounded-lg font-label-sm text-label-sm w-full font-bold">Write a Review</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-white/5 bg-surface mt-stack-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-stack-md">
+<div class="text-headline-md font-headline-md text-primary font-bold">Obsidian Cinema</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                © 2024 Obsidian Cinema. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+
+        // Sticky Nav logic - subtle backdrop increase on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-surface/90');
+                header.classList.remove('bg-surface/60');
+            } else {
+                header.classList.add('bg-surface/60');
+                header.classList.remove('bg-surface/90');
+            }
+        });
+    </script>
+</body></html>

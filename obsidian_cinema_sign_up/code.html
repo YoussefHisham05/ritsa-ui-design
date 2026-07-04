@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join the Elite | Obsidian Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .input-glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-glass:focus {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #EAB308;
+            outline: none;
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.1);
+        }
+        .cinematic-gradient {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 6s ease-in-out infinite; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffd165",
+                        "primary-container": "#eab308",
+                        "on-primary": "#3f2e00",
+                        "surface": "#17130a",
+                        "on-surface": "#ece1d1",
+                        "on-surface-variant": "#d3c5ac",
+                        "outline": "#9b8f79",
+                        "background": "#17130a",
+                        "secondary-container": "#3a4a5f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- Cinematic Background -->
+<div class="fixed inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center scale-110" data-alt="A panoramic, wide-angle cinematic shot of a moody, high-end private home theater with deep obsidian walls and golden ambient lighting. The scene is slightly blurred to create depth, focusing on the atmosphere of luxury cinema. The color palette is dominated by deep blacks, charcoal greys, and warm golden glows from recessed floor lighting, perfectly matching the Obsidian Cinema brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtg3MS2Jyi9HiZGcdwVGytFV-7ldIbteVKPC40j9bZNotih8s1YP3BrsOs4O-7Y3bJ81GGS5DnR8xkOMwb5ryIjbMuWEC5Rp7q5HYNamu_KEg_L1yqiFyyTv6VfC25Rfz1c181dsmO267N6MvQ8O8jrJ66tQZr9s7XsCfpl3mWq_0SCcD2o7E-U1OWdHcRfR30Au0uTUkq5oxkzEELHJ9Z791P8MMQRCicWChfHD4y_oTsLIb4JibjUV3HegzOZbxEh8Lv0ja91wep')"></div>
+<div class="absolute inset-0 cinematic-gradient"></div>
+<!-- Atmospheric WebGL Overlay Placeholder (if used) -->
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 flex-grow flex items-center justify-center px-margin-mobile md:px-margin-desktop py-stack-lg">
+<div class="w-full max-w-[500px]">
+<!-- Branding Header -->
+<div class="text-center mb-stack-lg animate-fade-in">
+<h1 class="font-display-lg text-[40px] md:text-display-lg text-primary font-extrabold tracking-tighter mb-2">
+                    Obsidian Cinema
+                </h1>
+<p class="text-on-surface-variant font-body-lg">Curated Excellence for Cinephiles</p>
+</div>
+<!-- Signup Card -->
+<div class="glass-panel rounded-xl p-8 md:p-10 shadow-2xl transition-all duration-500 hover:shadow-primary/5">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Create Your Profile</h2>
+<p class="text-on-surface-variant text-body-md">Join the elite community of critics and enthusiasts.</p>
+</div>
+<form class="space-y-5" onsubmit="return false;">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">person</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg input-glass text-on-surface placeholder:text-on-surface-variant/40" placeholder="John Wick" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">mail</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg input-glass text-on-surface placeholder:text-on-surface-variant/40" placeholder="john@continental.com" type="email"/>
+</div>
+</div>
+<!-- Passwords Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">lock</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg input-glass text-on-surface placeholder:text-on-surface-variant/40" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Confirm</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">enhanced_encryption</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg input-glass text-on-surface placeholder:text-on-surface-variant/40" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 rounded border-outline bg-transparent text-primary-container focus:ring-primary-container" id="terms" type="checkbox"/>
+<label class="text-label-sm text-on-surface-variant leading-relaxed" for="terms">
+                            I agree to the <a class="text-primary hover:underline transition-all" href="#">Terms of Service</a> and <a class="text-primary hover:underline transition-all" href="#">Privacy Policy</a>.
+                        </label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container font-headline-md py-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 group">
+                        Create Account
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-8 text-center">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-white/10"></div></div>
+<span class="relative px-4 bg-[#1e1e1e] text-label-sm text-on-surface-variant uppercase tracking-widest">or join via</span>
+</div>
+<!-- Social Options -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-3 px-4 rounded-lg input-glass hover:bg-white/5 transition-colors group">
+<svg class="w-5 h-5 fill-on-surface group-hover:fill-primary transition-colors" viewbox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"></path></svg>
+<span class="font-label-sm">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 px-4 rounded-lg input-glass hover:bg-white/5 transition-colors group">
+<svg class="w-5 h-5 fill-on-surface group-hover:fill-primary transition-colors" viewbox="0 0 24 24"><path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.165,8.5,9.871V14.625H7.891V12H10.5v-2c0-2.574,1.533-4,3.883-4 c1.125,0,2.3,0.2,2.3,0.2v2.53h-1.295c-1.275,0-1.669,0.792-1.669,1.605V12h2.852l-0.456,2.625h-2.396V21.871 C18.307,21.165,22,17.013,22,12C22,6.477,17.523,2,12,2z"></path></svg>
+<span class="font-label-sm">Facebook</span>
+</button>
+</div>
+</div>
+<!-- Footer Link -->
+<p class="text-center mt-8 text-on-surface-variant font-body-md">
+                Already a member? 
+                <a class="text-primary font-bold hover:underline ml-1" href="#">Log In</a>
+</p>
+</div>
+</main>
+<!-- Simple Minimal Footer (Refrenced from JSON logic) -->
+<footer class="relative z-10 w-full py-stack-lg border-t border-white/5 bg-transparent">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="text-headline-md font-bold text-primary opacity-50">Obsidian Cinema</div>
+<p class="text-label-sm text-on-surface-variant opacity-60">© 2024 Obsidian Cinema. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for form inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.querySelector('label').style.color = '#ffd165';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.querySelector('label').style.color = '';
+            });
+        });
+
+        // Subtle parallax effect on background
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const bg = document.querySelector('div[style*="background-image"]');
+            if(bg) {
+                bg.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
+            }
+        });
+    </script>
+</body></html>

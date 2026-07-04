@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Write Review - Obsidian Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .star-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .cinematic-glow:hover {
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#c7e7ff",
+                    "on-surface-variant": "#d3c5ac",
+                    "primary-fixed-dim": "#f7be1d",
+                    "inverse-on-surface": "#353025",
+                    "outline": "#9b8f79",
+                    "surface-dim": "#17130a",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-tint": "#f7be1d",
+                    "surface-container": "#241f15",
+                    "on-background": "#ece1d1",
+                    "surface": "#17130a",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-variant": "#3a3429",
+                    "primary-fixed": "#ffdf9a",
+                    "on-tertiary-fixed": "#001e2e",
+                    "on-secondary-container": "#a9bad3",
+                    "inverse-surface": "#ece1d1",
+                    "surface-container-lowest": "#120e05",
+                    "primary-container": "#eab308",
+                    "surface-container-highest": "#3a3429",
+                    "on-tertiary": "#00344c",
+                    "tertiary-container": "#60c5ff",
+                    "on-primary-fixed-variant": "#5a4300",
+                    "background": "#17130a",
+                    "secondary": "#b7c8e1",
+                    "on-surface": "#ece1d1",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#005072",
+                    "on-secondary": "#213145",
+                    "error-container": "#93000a",
+                    "tertiary": "#adddff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-error": "#690005",
+                    "surface-container-low": "#201b11",
+                    "surface-bright": "#3e382d",
+                    "secondary-container": "#3a4a5f",
+                    "on-tertiary-fixed-variant": "#004c6c",
+                    "surface-container-high": "#2f291f",
+                    "primary": "#ffd165",
+                    "inverse-primary": "#785a00",
+                    "on-primary-container": "#604700",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed": "#251a00",
+                    "on-primary": "#3f2e00",
+                    "outline-variant": "#4f4633",
+                    "tertiary-fixed-dim": "#83cfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-surface/60 backdrop-blur-3xl shadow-2xl">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">movie_filter</span>
+                Obsidian Cinema
+            </div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm uppercase tracking-widest" href="#">Browse</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm uppercase tracking-widest" href="#">Critics</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm uppercase tracking-widest" href="#">Coming Soon</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm uppercase tracking-widest" href="#">Community</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95" data-icon="notifications">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/10 hover:border-primary/50 transition-colors cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a sophisticated film enthusiast with cinematic lighting, set against a blurred background of a modern home theater. The aesthetic is clean, professional, and follows the obsidian and gold brand color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVEoCXNHuj2Vc83pcUpqQhcP8H2daeEzCwLed_p-DQX3tx0GAphqlWszm1nzAukGYocHzFJ0ghdpfZ1QnoXmUoD1TLna7aYuLJQlq45HN1mH-PREGKjvopNRyA1BBxym36jXr4P2zEDAzylwXxdh7cpTYknzkdFWL41B2U9R_eKZVCodhWDmrh5Co1eZ_frF5IzqnOqne9NwyJZRFnerllqEKf_dzNKb7LTjXLqsB0pcwVpv6ovekAS7SMNCdy6-5joFrgkGVOijfU"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Write Review</h1>
+<p class="text-on-surface-variant font-body-lg">Share your cinematic perspective with the community.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Movie Preview Card -->
+<div class="lg:col-span-4 sticky top-32">
+<div class="glass-panel rounded-xl overflow-hidden group">
+<div class="relative h-96 w-full">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High-resolution cinematic still from Interstellar showing a majestic spacecraft orbiting a massive, glowing black hole with a brilliant accretion disk. The lighting is dramatic and cosmic, utilizing deep obsidian blacks and vibrant golden hues to match the Obsidian Cinema design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAel41N8SjeXP9Pu62pkFiLMYVU2FoCtYynhLvNmaEI-JhK5N_mYSM8lUPnWLQ8keRyeKE_cvfstJ-OhwXdzExmMXTja6rLAD1et5RCKTFKDk5i5ohj0NmVJofr8MP20bPfoNqfeIibeWAGNHT8GEp1mZ5LCudUTP_0OxnrCiTjsRBn3-60WiohkxSunPrRGTe33eB_qcZOiGtFRgYqjTXOaT9gfJssDOUW95aT-kbzXKKfQOsuno2X98uWU1I-TrqJ6A9GUuGV5zJN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Interstellar</h2>
+<span class="font-label-sm px-2 py-1 bg-white/10 rounded-full text-on-surface-variant">2014</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 line-clamp-2">A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-label-sm px-3 py-1 bg-white/5 border border-white/10 rounded-full">Sci-Fi</span>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-white/5 border border-white/10 rounded-full">Adventure</span>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-white/5 border border-white/10 rounded-full">Drama</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Review Form -->
+<div class="lg:col-span-8">
+<form class="glass-panel p-stack-lg rounded-xl flex flex-col gap-stack-lg">
+<!-- Star Rating -->
+<div class="flex flex-col gap-4 items-center md:items-start">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest">Rate this masterpiece</label>
+<div class="flex gap-2" id="star-container">
+<button class="material-symbols-outlined text-4xl text-primary-container transition-all hover:scale-110" style="font-variation-settings: 'FILL' 1;" type="button">star</button>
+<button class="material-symbols-outlined text-4xl text-primary-container transition-all hover:scale-110" style="font-variation-settings: 'FILL' 1;" type="button">star</button>
+<button class="material-symbols-outlined text-4xl text-primary-container transition-all hover:scale-110" style="font-variation-settings: 'FILL' 1;" type="button">star</button>
+<button class="material-symbols-outlined text-4xl text-primary-container transition-all hover:scale-110" style="font-variation-settings: 'FILL' 1;" type="button">star</button>
+<button class="material-symbols-outlined text-4xl text-outline transition-all hover:scale-110" style="font-variation-settings: 'FILL' 0;" type="button">star</button>
+</div>
+</div>
+<!-- Review Title -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest" for="title">Review Title</label>
+<input class="bg-surface-variant/50 border border-white/5 rounded-lg px-4 py-3 text-on-surface font-body-lg focus:outline-none focus:border-primary-container/50 transition-colors placeholder:text-outline" id="title" placeholder="Summarize your experience..." type="text"/>
+</div>
+<!-- Multi-Select Tags -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest">What stood out?</label>
+<div class="flex flex-wrap gap-stack-sm">
+<button class="px-4 py-2 rounded-full border border-primary-container bg-primary-container/10 text-primary-container font-label-sm transition-all active:scale-95" type="button">Story</button>
+<button class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-on-surface-variant font-label-sm hover:border-white/30 transition-all active:scale-95" type="button">Acting</button>
+<button class="px-4 py-2 rounded-full border border-primary-container bg-primary-container/10 text-primary-container font-label-sm transition-all active:scale-95" type="button">Visuals</button>
+<button class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-on-surface-variant font-label-sm hover:border-white/30 transition-all active:scale-95" type="button">Soundtrack</button>
+<button class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-on-surface-variant font-label-sm hover:border-white/30 transition-all active:scale-95" type="button">Direction</button>
+</div>
+</div>
+<!-- Review Content -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest" for="review">Full Review</label>
+<textarea class="bg-surface-variant/50 border border-white/5 rounded-lg px-4 py-4 text-on-surface font-body-md focus:outline-none focus:border-primary-container/50 transition-colors resize-none placeholder:text-outline" id="review" placeholder="The gravity of this story truly pulled me in..." rows="8"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full md:w-auto px-12 py-4 bg-primary-container text-on-primary-container font-headline-md rounded-lg cinematic-glow transition-all active:scale-95 flex items-center justify-center gap-3" type="submit">
+                            Submit Review
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 700;">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-white/5 bg-surface mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-stack-md">
+<div class="text-headline-md font-headline-md text-primary font-bold">Obsidian Cinema</div>
+<div class="flex gap-8 items-center text-on-surface-variant font-label-sm uppercase tracking-tighter">
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="hover:text-primary transition-colors" href="#">Press Kit</a>
+</div>
+<div class="text-on-surface-variant font-label-sm">
+                © 2024 Obsidian Cinema. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for Star Rating
+        const stars = document.querySelectorAll('#star-container button');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.style.fontVariationSettings = "'FILL' 1";
+                        s.classList.remove('text-outline');
+                        s.classList.add('text-primary-container');
+                    } else {
+                        s.style.fontVariationSettings = "'FILL' 0";
+                        s.classList.add('text-outline');
+                        s.classList.remove('text-primary-container');
+                    }
+                });
+            });
+        });
+
+        // Toggle logic for tags
+        const tags = document.querySelectorAll('button[type="button"].rounded-full');
+        tags.forEach(tag => {
+            if (tag.parentElement.id !== 'star-container') {
+                tag.addEventListener('click', () => {
+                    const isActive = tag.classList.contains('border-primary-container');
+                    if (isActive) {
+                        tag.classList.remove('border-primary-container', 'bg-primary-container/10', 'text-primary-container');
+                        tag.classList.add('border-white/10', 'bg-white/5', 'text-on-surface-variant');
+                    } else {
+                        tag.classList.add('border-primary-container', 'bg-primary-container/10', 'text-primary-container');
+                        tag.classList.remove('border-white/10', 'bg-white/5', 'text-on-surface-variant');
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

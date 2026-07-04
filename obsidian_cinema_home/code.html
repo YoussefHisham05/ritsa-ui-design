@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian Cinema | Premium Film Critique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#adddff",
+                    "inverse-on-surface": "#353025",
+                    "outline": "#9b8f79",
+                    "on-tertiary": "#00344c",
+                    "error-container": "#93000a",
+                    "surface": "#17130a",
+                    "on-primary-fixed-variant": "#5a4300",
+                    "surface-container-lowest": "#120e05",
+                    "on-primary-fixed": "#251a00",
+                    "surface-tint": "#f7be1d",
+                    "background": "#17130a",
+                    "outline-variant": "#4f4633",
+                    "on-primary-container": "#604700",
+                    "surface-container-high": "#2f291f",
+                    "primary-fixed": "#ffdf9a",
+                    "surface-container-low": "#201b11",
+                    "surface-variant": "#3a3429",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#ece1d1",
+                    "surface-container": "#241f15",
+                    "inverse-surface": "#ece1d1",
+                    "primary-container": "#eab308",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-dim": "#17130a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed": "#001e2e",
+                    "on-secondary-container": "#a9bad3",
+                    "on-secondary-fixed": "#0b1c30",
+                    "secondary": "#b7c8e1",
+                    "inverse-primary": "#785a00",
+                    "on-primary": "#3f2e00",
+                    "tertiary-container": "#60c5ff",
+                    "primary": "#ffd165",
+                    "tertiary-fixed": "#c7e7ff",
+                    "surface-container-highest": "#3a3429",
+                    "on-tertiary-container": "#005072",
+                    "on-error": "#690005",
+                    "secondary-container": "#3a4a5f",
+                    "surface-bright": "#3e382d",
+                    "on-tertiary-fixed-variant": "#004c6c",
+                    "tertiary-fixed-dim": "#83cfff",
+                    "primary-fixed-dim": "#f7be1d",
+                    "on-background": "#ece1d1",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-surface-variant": "#d3c5ac"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(30, 30, 30, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to top, #17130a 0%, rgba(23, 19, 10, 0.4) 50%, transparent 100%);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .movie-card-float {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .movie-card-float:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar (Shared Component Anchor) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-2xl border-b border-white/5 shadow-2xl">
+<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-display-lg font-bold text-primary tracking-tighter" href="#">Obsidian Cinema</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Movies</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Favorites</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<!-- Search Component (Integrated on Right) -->
+<div class="hidden lg:flex items-center bg-white/5 rounded-full px-4 py-2 border border-white/10 focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-48 text-on-surface placeholder:text-on-surface-variant" placeholder="Search films, actors..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-300 p-2 rounded-full hover:bg-white/10" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-20">
+<!-- Hero Section: Featured Movie -->
+<section class="relative h-[870px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A grand, cinematic landscape of a futuristic sci-fi world where colossal obsidian-colored monoliths drift through a swirling nebular sky of gold and deep indigo. High-resolution textures show intricate technological patterns on the floating structures. The lighting is dramatic and moody, reflecting the Obsidian Cinema brand's premium dark-mode aesthetic with golden atmospheric glows. A sense of epic scale and high-stakes adventure permeates the scene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs3SNjVroOlc61r5gr3vZvTiSP4dQtnZyMaq5v4T3zkK4UiNlxz6oNtfaD0tJbGP5T0ZscamHs2aRijrKH291d4DPbXtdwDoSRs3Z8lP8fEOglFNs2xSNUYK58womdgPPPZmVy4fGqETN_LcNOXHbeN9ARBBfd6qSf1FIx7HXSXPhxx1H1iy2rPDx7dzm4ateW0DVoKu4jjKYm1JkI6Zi8wEg5E9HAQHcMF1NSP1TiLOryYk-Qh9Jly26CtNJ4IcCMbK0AO8f04UB2')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative h-full max-w-container-max mx-auto px-gutter flex flex-col justify-end pb-stack-lg">
+<div class="max-w-2xl space-y-stack-sm">
+<span class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full font-label-sm text-label-sm text-primary uppercase tracking-widest border border-white/10">Featured Spotlight</span>
+<h1 class="font-display-lg text-display-lg md:text-[64px] font-extrabold text-on-surface leading-tight">Aether Drift</h1>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-md">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.8
+                        </span>
+<span class="w-1.5 h-1.5 bg-white/20 rounded-full"></span>
+<span>Sci-Fi • Action</span>
+<span class="w-1.5 h-1.5 bg-white/20 rounded-full"></span>
+<span>2h 45m</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-lg leading-relaxed max-w-xl py-4">
+                        In a dying star system, a group of scavengers discovers an ancient vessel that holds the key to humanity's survival—or its final destruction.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary font-bold px-8 py-4 rounded-lg flex items-center gap-2 hover-glow transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+                            Write Review
+                        </button>
+<button class="bg-white/5 border border-white/10 backdrop-blur-xl text-on-surface font-bold px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-white/10 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Trailer
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories & Genres Section -->
+<section class="max-w-container-max mx-auto px-gutter py-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="w-1 h-8 bg-primary rounded-full"></span>
+                    Explore Genres
+                </h2>
+</div>
+<div class="flex gap-4 overflow-x-auto scroll-hide pb-4">
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Action</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Drama</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Comedy</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Horror</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Romance</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Animation</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Documentary</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-on-surface hover:bg-primary hover:text-on-primary transition-all border border-white/5 text-label-sm uppercase tracking-wider">Thriller</button>
+</div>
+</section>
+<!-- Main Content Grid with Sidebar -->
+<section class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter pb-stack-lg">
+<!-- Trending Movies Grid (8 Columns) -->
+<div class="lg:col-span-9 space-y-stack-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Trending Now</h2>
+<a class="text-primary font-label-sm hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Movie Card 1 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A visually stunning movie poster for a dark detective noir set in a rainy neon-lit city. Deep blacks and vibrant blues contrast with sharp magenta highlights. The mood is mysterious and sophisticated, following the Obsidian Cinema luxury aesthetic. The central figure is a silhouette in a long coat standing under a flickering street lamp." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVGdbS8E8M6EI8izqsZlSHfzw8g11d84XbNX85AP2WC0Ho13KEglsqR8AYF3yvug7QMNO0nh2aC10vUPXnsNB4fAxA19301LGNIi33WKkKZY9quhBa9fIVPWdBO3xL9VUTNaDv0OIat9equ1L5DwFRKNJlmGUxpllymgyjj7H1UuI7BiQ4abg56D9TwUGn7Wzgy8iqMhnhS8ZNCeC7YeY0spyxl68M5lAj0Q-G60EdsStc6QjJrfsPwUc-l-SpG9sKCMYJQ44vO7-t')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Drama</span>
+<h3 class="font-headline-md text-on-surface leading-tight">Neon Echoes</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.5
+                                    </span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Movie Card 2 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant and energetic movie poster for a high-octane racing film. Blurred streaks of golden light zip across a dark asphalt track. The composition is dynamic and diagonal, creating a sense of extreme speed. The overall color palette is dominated by obsidian blacks and cinematic gold accents, fitting perfectly within the Obsidian Cinema brand guidelines." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3ujHmwgqYYeG7Pbt-aRw4UgnsfbascjDWpbGaxB6onNlo6s2tkd9OIXe7yG7bFJ-iPqnJxgLZHfdE5AWBA0FxGmih84I-QQEWmZgZoQ3pB1bVUmzOaP75ZOzdpyIldrHMrC6FGc5-2x6Ghep6tH9uIkPngqw_6If8l096EAf3LdUaF_nRssWjCaqbcHk_VD_Aiy8d17h6YQ9u3yD6LGOPbj7IRD7raq4ETq29zRhkpgS3fuEDHQvVYkfhxU67FtjGfZNXI1kaJJ-f')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Action</span>
+<h3 class="font-headline-md text-on-surface leading-tight">Vortex Velocity</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.2
+                                    </span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Movie Card 3 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A stylized and artistic poster for a modern indie comedy. The visual style is minimalist glassmorphism, with soft pastel gradients overlaid on a deep obsidian background. A central, quirky illustration of a bright yellow umbrella against a dark cityscape provides a focal point. The lighting is soft and ambient, creating a warm, inviting yet premium feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSAE53sKE4DjPBCLNKwJH0kjNFiw6cgtetXUjHSZcqxAH0UvMkrKIMkMLJxllszcnGSdr2s6wMr7zjRNt-aN5xavwEZQXlIiVYuqy5rNdskwq47EebuxGD8wHWXVK9qeL43_DYEiFT2H317yPfYpz0DZ5pq7jn2M-TJsfn5ftaHBJuB8W8b02OWGQb1v4kj3ZAaBoX-1EA4y0Kge5CoJNULawM62WoyiIKuzPwMRyl4kEIcqfc4sz_6qEA1OuQfnovsp2N1dJMxi5a')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Comedy</span>
+<h3 class="font-headline-md text-on-surface leading-tight">The Quiet Laugh</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.7
+                                    </span>
+<span>2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Movie Card 4 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-fantasy epic movie poster featuring a massive ancient dragon's golden eye reflecting a small knight. The detail on the scales is ultra-high definition. The color palette centers on obsidian blacks, charcoal grays, and intense fiery golden yellows. The mood is majestic and awe-inspiring, perfectly suited for a premium cinematic review platform." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3x3AosVV1yNBQvgnoVtTZLk-7PNaiLBT1VwHaftRTxdvqzfkVZsXOrbuKw1UNQu-FoI5AY34Sjmvn4BrxX6fSucQNBOGOTPbzZYDeHj39swL8Po-ewHly44p4GMgKllyfoUSqg72F07w6nOHuZAtfgwELy_HaAFtvaKBD2e8v5GoTIf244lC3QiyhZsdmsy08EznfGmuRdok1pWSVsYIfiqwlqmQMhrMv6SP6e_wVxRAxoryNMQqPoWhNYotBBEdLHKXIDu8Yq18y')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Fantasy</span>
+<h3 class="font-headline-md text-on-surface leading-tight">Wyrm's Legacy</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                                    </span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Movie Card 5 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A chilling psychological thriller poster featuring a shattered mirror reflecting multiple distorted faces. The aesthetic is cold and clinical, with a deep charcoal and slate gray color palette. Subtle golden glints in the glass shards add the signature Obsidian Cinema luxury touch. The lighting is high-contrast and dramatic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCm8EATnG1YIX2q2rviP-YKsIKByZLq8sVQkrbuOhKW9cficB19olAGn4OWe01qVlVE2JQWIvHo6EAj8SQGGWbw9BtApKQrcJjUEtat1ujoQsvDWMMooylQpEsqUua0_W1XdBZRUlPsjLdgnzgyKg66p-xFeD6lmnS1-CyKMdo6bQ97r1dbzLsr6TFnr8ko0ngJyiLDJ7f7dOeCO6P9F9DfvA4bAiEiIzVf8rK4b0RG9VEBolZz0Ug0eiudY6lE09mXrGgC4sBz3_u7')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Thriller</span>
+<h3 class="font-headline-md text-on-surface leading-tight">Fractured Mirror</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.4
+                                    </span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Movie Card 6 -->
+<div class="group relative movie-card-float aspect-[2/3] rounded-xl overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A heartwarming animated film poster featuring a small glowing robot in a garden of metallic flowers. The lighting is soft and magical, using bioluminescent blue and primary gold colors. The background is a deep obsidian night sky filled with stars. The visual style is high-end 3D animation with rich textures and cinematic depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhz3WFkvM4ol_8ZGyO8XYVJMabL7btA7gPaiFmYUw9LUJtbGG-tkeorfqv_jfwTJCceAZ9M0JYG-PZqgUqg1-Ll82ezlqZbLK-4Zs5tfCiIGET3Y5-o4uHqiSnJ_b-JUL9CqjnfBcE_oL1g4uqhSTJuRCsZM939jd-eDzYfbwua5VMSpEE93akZIn-L264BdNxXb9aVuPIloRWbeNwW_swOooM2ssUAWM_SCyvPFFshs5XoJ6X4TmkfYCdJUYFGJw7dtTrHSjBgkxB')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="space-y-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded uppercase tracking-widest border border-primary/30">Animation</span>
+<h3 class="font-headline-md text-on-surface leading-tight">Metal Petals</h3>
+<div class="flex items-center gap-3 text-on-surface-variant text-label-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 4.6
+                                    </span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Reviewers Sidebar (3 Columns) -->
+<aside class="lg:col-span-3 space-y-stack-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Top Reviewers</h2>
+</div>
+<div class="glass-card rounded-2xl p-6 space-y-6">
+<!-- Reviewer 1 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a sophisticated film critic in their late 30s. The lighting is dramatic studio style with deep shadows and a golden rim light. They are wearing dark designer glasses and a charcoal turtleneck. The image has a high-end, editorial feel consistent with Obsidian Cinema's dark, cinematic branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcUi8gUMgEGx9mLp5UEp3_AvRCFrgPPN8k5epvaFjqDjHMqlhYaijeDCgakFh-n7N48KDAmUQGhK8cD480T8N_OwR1J2gZA7tTWB4Jpn5yC50ZPna91TRuzhSQSjIZH4Ps4B1ujWqwlCATXAYVKNJjNepO2a-evbiREi1-Fmf9udMHAPyRB4uaZFbFzivsD-Xq9ZvNKeyjJnaj1mCqugqFHuUXjfdghyaJgZI0E2eYCsxtHAvgKhsj2JI0tExRkKPinRuGtdP5KNLr"/>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Julian Thorne</h4>
+<p class="font-label-sm text-on-surface-variant">Reviews: 1,421</p>
+</div>
+<div class="ml-auto text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Reviewer 2 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover" data-alt="A high-fashion portrait of a woman in her 20s who is a leading film reviewer. She has a modern, artistic look with a minimalist aesthetic. The lighting is high-key but set against a deep obsidian background, creating a floating, cinematic effect. Golden hour light catches her features, emphasizing a professional yet creative persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO4AB8RXL0vb0R-OUYt65YtiU0C3X-GXSnBvu7OanwPpXzSLsCqpbxbqM4UDANiQcD6jbrZ3XgaHOg2ZrQkPMO64kM9tuk31ue6blXwgVDtlBDtUhzC2rFOK-9T-owAw5IRClrvoXm_ASjbcxjZ915io93EIZy6nJ6oHx1E1-U6iXiJjE9vNGhkFTg82NgzDjfDNBO3G91Smx3jyC94yuBBiYY8pYE5q_DoVJAAZdC-Xzrh2peJuK21Zp8hWoxuwUCRpiyfK6CzlV4"/>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Elena Vance</h4>
+<p class="font-label-sm text-on-surface-variant">Reviews: 894</p>
+</div>
+</div>
+<!-- Reviewer 3 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover" data-alt="A cinematic portrait of an older man with a distinguished beard and intelligent eyes, suggesting years of experience in the film industry. The style is moody and elegant, using the brand's dark mode color palette with soft golden highlights. He looks like an authoritative figure in movie criticism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6xjvFdW1egq0gKDhI8z0Q3CSA1Qh-ERe1r4T3tTS9xSsC8xF17QkMeXPTmyKAfI35FKpohzoeLaMGxb0B336FKkoeUCT-_atcJL6fAP5BlRVqimj9KBPG5G34K5kCPewTQvwGflmgZKaGlCaSgk-f-k8jkrif5YTLkWizdcegSAdgaFbrsbtZkAG_5Kgf25Ngl_6hW_Rv1JOMFc4hPLaglDsJeDE5_efM8isMRF6Rl9iN4U1UF_UsDMKVcdIw6vlJjlBPLIMmj-9"/>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Arthur Penhaligon</h4>
+<p class="font-label-sm text-on-surface-variant">Reviews: 2,105</p>
+</div>
+<div class="ml-auto text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Reviewer 4 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover" data-alt="A creative close-up of a young man with an edgy, cinephile aesthetic. He is partially obscured by cinematic lighting shadows, with a golden light source from the side highlighting his thoughtful expression. The style is immersive and modern, fitting the high-stakes atmosphere of Obsidian Cinema." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-16e1CKWpWLHeWoDWekEP6iHE7YFzOp007fgPo6tIiZDNkwrfCTEMDTecmrxbxxUWqwqm3bv5VFWh6do89GFIDaTwS4KqGkR33ZRWbP5i2nR5NKlMT9X3JrA4KDf9In6EURKNSG3dsvWZ_EA7r1-2Ce1evzx3VIGuYBnBzX_3zJeFc4r8uCgssWCPjphw_V-WqIFVQ54zPITCwXa57Bql-QjdcAas62_jOf7aNEYgDOCzENRFNHkmqatJlWEv9fuG8j0elI0Iv5CY"/>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Marcus Flint</h4>
+<p class="font-label-sm text-on-surface-variant">Reviews: 642</p>
+</div>
+</div>
+<button class="w-full py-3 border border-white/10 rounded-lg text-label-sm font-bold uppercase tracking-widest hover:bg-white/5 transition-all text-on-surface-variant hover:text-on-surface">View All Critics</button>
+</div>
+<!-- Featured Collection Card -->
+<div class="relative rounded-2xl overflow-hidden aspect-video glass-card p-6 flex flex-col justify-end group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A curated collection image showing a stack of classic film reels bathed in a warm golden light against a dark obsidian studio background. The atmosphere is nostalgic yet modern and luxurious. The lighting is focused, highlighting the metallic textures of the reels and the dust motes dancing in the light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4M-hExSCAAEAL79qmKncIPRKImYIZ1sKj_Kwj1iIbo27vIKPhgmtG0-GHXOmusz-1px_1eqhRW10o1WPAvvv_F_UaTtRtxLdh6_0OG7IqHt2OZoibYynaYXcjObfjb3sbXph-GO2yq-r09aDk8eMaIZYRxUHn5QLmlZT8OHbvfYeCj4PjUs5LA9ZzQNUzxohZ0UEK9pDgA9msxoMOyrVzLn_PskZFBZx5T6aV0bJoPpXfCIslS5cfWCHo2ba4tZq79SUYzuUBz90n')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="relative">
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Editor's Choice</p>
+<h4 class="font-headline-md text-on-surface">The 2024 Noir Revival</h4>
+<p class="text-on-surface-variant text-label-sm">12 Movies • Curated by Obsidian Staff</p>
+</div>
+</div>
+</aside>
+</section>
+</main>
+<!-- Footer (Shared Component Anchor) -->
+<footer class="w-full py-stack-lg border-t border-white/5 bg-surface">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">Obsidian Cinema</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Obsidian Cinema. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">About</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Layer: Scroll Shadow Script -->
+<script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-surface/90');
+                header.classList.remove('bg-surface/60');
+            } else {
+                header.classList.add('bg-surface/60');
+                header.classList.remove('bg-surface/90');
+            }
+        });
+
+        // Add micro-interaction to all buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1.1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

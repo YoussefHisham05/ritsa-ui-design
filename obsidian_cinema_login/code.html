@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Obsidian Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .cinematic-glow:hover {
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 209, 101, 0.4);
+        }
+        /* Custom Checkbox */
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: transparent;
+            margin: 0;
+            font: inherit;
+            color: #EAB308;
+            width: 1.15em;
+            height: 1.15em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.15em;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+        }
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #EAB308;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "surface-bright": "#3e382d",
+                      "secondary": "#b7c8e1",
+                      "inverse-surface": "#ece1d1",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-secondary-container": "#a9bad3",
+                      "on-error-container": "#ffdad6",
+                      "surface-tint": "#f7be1d",
+                      "on-tertiary-fixed": "#001e2e",
+                      "primary": "#ffd165",
+                      "on-primary": "#3f2e00",
+                      "primary-container": "#eab308",
+                      "surface-container-high": "#2f291f",
+                      "surface-container": "#241f15",
+                      "on-secondary": "#213145",
+                      "surface-container-lowest": "#120e05",
+                      "primary-fixed": "#ffdf9a",
+                      "on-surface": "#ece1d1",
+                      "on-primary-container": "#604700",
+                      "outline": "#9b8f79",
+                      "error-container": "#93000a",
+                      "on-tertiary": "#00344c",
+                      "background": "#17130a",
+                      "inverse-on-surface": "#353025",
+                      "error": "#ffb4ab",
+                      "tertiary": "#adddff",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#5a4300",
+                      "tertiary-container": "#60c5ff",
+                      "on-tertiary-fixed-variant": "#004c6c",
+                      "tertiary-fixed-dim": "#83cfff",
+                      "secondary-container": "#3a4a5f",
+                      "surface-dim": "#17130a",
+                      "outline-variant": "#4f4633",
+                      "surface-container-low": "#201b11",
+                      "on-background": "#ece1d1",
+                      "surface-container-highest": "#3a3429",
+                      "primary-fixed-dim": "#f7be1d",
+                      "on-primary-fixed": "#251a00",
+                      "on-tertiary-container": "#005072",
+                      "on-surface-variant": "#d3c5ac",
+                      "surface": "#17130a",
+                      "inverse-primary": "#785a00",
+                      "tertiary-fixed": "#c7e7ff",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-variant": "#3a3429",
+                      "secondary-fixed": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "48px",
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg-mobile": ["Montserrat"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Montserrat"],
+                      "headline-md": ["Montserrat"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- Cinematic Background Container -->
+<div class="fixed inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A widescreen cinematic shot of a moody, dark movie theater with empty velvet seats and a faint, glowing light coming from the screen, casting deep obsidian shadows and warm golden highlights. The atmosphere is sophisticated and quiet, with visible film grain and high-end cinematic textures. The color palette is dominated by deep blacks, charcoal, and embers of gold." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5aKshbG2wvuMzkXyi6D0uf45y1iL95H5baJktalf-Ti-6uH8ZI7C14f6APSz1NZlI1pdzkaoCWj8WodCc2dTMtrcWCj8ekrjmH4YZCXtARvWxNvGiASfony5xybxmGjvobzj36zMYv7xRLHEj8WqjzBf4teJcEHSpQuHjRLR5Nidn66fA3SRQ_fc3GjLQofks9SJfruBVas3LisBSISI5O8ygSdvJvtBQPIbLI13XFbdMVFtQlsTrnG2dHn0O0wb8RnEdPjnyzdr5')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<!-- Animated Atmospheric Shader Placeholder -->
+
+</div>
+<!-- Login Shell Container -->
+<main class="relative z-10 flex min-h-screen items-center justify-center px-margin-mobile md:px-margin-desktop">
+<!-- Central Glassmorphism Card -->
+<div class="glass-card w-full max-w-[440px] p-8 md:p-10 rounded-xl shadow-2xl flex flex-col gap-stack-lg transition-all duration-500 animate-in fade-in slide-in-from-bottom-8">
+<!-- Brand Identity -->
+<div class="text-center">
+<h1 class="font-display-lg text-primary text-glow mb-2">Obsidian Cinema</h1>
+<p class="font-body-md text-on-surface-variant">Step back into the world of film.</p>
+</div>
+<!-- Login Form -->
+<form class="flex flex-col gap-stack-md" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">mail</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-on-surface placeholder:text-on-surface-variant/40" id="email" placeholder="cinephile@obsidian.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider" for="password">Password</label>
+<a class="font-label-sm text-primary-fixed-dim hover:text-primary transition-colors" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">lock</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-on-surface placeholder:text-on-surface-variant/40" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2 py-2">
+<input class="cursor-pointer" id="remember" type="checkbox"/>
+<label class="font-label-sm text-on-surface-variant cursor-pointer select-none" for="remember">Keep me signed in</label>
+</div>
+<!-- Primary Login Button -->
+<button class="w-full bg-primary-container hover:bg-primary-fixed text-on-primary-container font-headline-md py-4 rounded-lg cinematic-glow transition-all duration-300 transform active:scale-[0.98] mt-2" type="submit">
+                    Login
+                </button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-white/10"></div>
+<span class="font-label-sm text-on-surface-variant/60">OR CONTINUE WITH</span>
+<div class="h-[1px] flex-1 bg-white/10"></div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 bg-white/5 border border-white/10 py-3 rounded-lg hover:bg-white/10 transition-all group">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-label-sm text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 bg-white/5 border border-white/10 py-3 rounded-lg hover:bg-white/10 transition-all group">
+<svg class="w-5 h-5 text-on-surface" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.05 20.28c-.96.95-2.04 1.72-3.12 1.72-1.01 0-1.54-.61-2.85-.61-1.32 0-1.89.6-2.85.6-1.07 0-2.22-.85-3.13-1.72C3.17 18.33 1.5 15.19 1.5 12.11c0-3.38 2.02-5.17 3.99-5.17 1.04 0 1.93.61 2.68.61.73 0 1.83-.65 3.01-.65 1.25 0 2.37.45 3.12 1.41-2.5 1.49-2.09 4.88.42 5.92-.81 1.91-1.85 3.75-2.67 5.05M12.03 5.46c-.05-1.83 1.41-3.4 3.06-3.46.12 1.97-1.54 3.51-3.06 3.46Z"></path>
+</svg>
+<span class="font-label-sm text-on-surface">Apple</span>
+</button>
+</div>
+<!-- Sign Up Link -->
+<div class="text-center mt-2">
+<p class="font-label-sm text-on-surface-variant">
+                    Don't have an account? 
+                    <a class="text-primary font-semibold hover:underline decoration-primary/30 transition-all" href="#">Create Profile</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Hidden Footer Links (as per requirements for simple navigation exclusion on transaction screens, but maintaining identity) -->
+<div class="fixed bottom-6 w-full text-center px-4 z-10 pointer-events-none">
+<p class="font-label-sm text-on-surface-variant/40 pointer-events-auto">
+            © 2024 Obsidian Cinema. All rights reserved. 
+            <span class="mx-2">|</span>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<span class="mx-2">|</span>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+</p>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.glass-card');
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Subtle tilt effect
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 30;
+            const rotateY = (centerX - x) / 30;
+            
+            if (e.clientX > rect.left && e.clientX < rect.right && e.clientY > rect.top && e.clientY < rect.bottom) {
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            } else {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            }
+        });
+
+        // Focus ring logic for accessibility
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '#ffd165';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = 'rgba(211, 197, 172, 0.6)';
+            });
+        });
+    </script>
+</body></html>
